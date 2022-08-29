@@ -1,0 +1,46 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function(s) {
+    const symbols = {
+      I: '1',
+      V: '5',
+      X: '10',
+      L: '50',
+      C: '100',
+      D: '500',
+      M: '1000'
+    }
+    let n = s.split('').length;
+    let sum = 0;
+    let roman = s.split('');
+    for(let i = 0; i < n; i++){
+        if(symbols.hasOwnProperty(roman[i])){
+            console.log(i);
+            let a = roman[i];
+            let check =i+1
+            let num1 = Number(symbols[a]);
+            if( check < n){
+                let b = roman[i+1];
+                
+                let num2 = Number(symbols[b]);
+                console.log("-----",num2)
+              
+                    if(num1 >= num2){
+                        sum+=num1;
+                    }else{
+                        let c = num2-num1;
+                        sum+=c;
+                        i=i+1;
+                    }
+               
+            }
+            else{
+                    sum+=num1;
+                }
+        }
+            
+    }
+    return sum;
+};
