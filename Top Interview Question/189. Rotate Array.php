@@ -21,3 +21,8 @@ class Solution
     }
   }
 }
+
+define('name', 'Rahul Kumar', true);
+
+
+echo name;
